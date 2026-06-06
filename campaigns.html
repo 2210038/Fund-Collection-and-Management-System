@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns - FundHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+    <a href="campaigns.html" class="logo">FundHub</a>
+    
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search campaigns..." onkeyup="searchCampaigns()">
+        <button onclick="searchCampaigns()"><i class="fas fa-search"></i> Search</button>
+    </div>
+    
+    <ul class="navbar-nav">
+        <li><a href="campaigns.html" class="active">Campaigns</a></li>
+        <li><a href="donation-form.html">Donate</a></li>
+        <li><a href="my-donations.html" id="dashboardLink" style="display:none;">My Dashboard</a></li>
+        <li><a href="admin.html" id="adminLink" style="display:none;"><i class="fas fa-user-shield"></i> Admin Panel</a></li>
+    </ul>
+    
+    <div class="navbar-auth">
+        <a href="login.html" id="loginLink">Login</a>
+        <a href="register.html" id="registerLink">Register</a>
+        <a href="#" onclick="logout()" class="btn-logout" style="display:none;" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</nav>
+
+<header class="header">
+    <h1>Fund Collection & Donation System</h1>
+    <p>Together We Can Make A Difference</p>
+</header>
+
+<!-- DASHBOARD -->
+<section class="dashboard">
+    <div class="dashboard-card">
+        <h2 id="totalAmount">৳0</h2>
+        <p>Total Donations</p>
+    </div>
+    <div class="dashboard-card">
+        <h2 id="totalDonors">0</h2>
+        <p>Total Donors</p>
+    </div>
+    <div class="dashboard-card">
+        <h2>4</h2>
+        <p>Active Campaigns</p>
+    </div>
+</section>
+
+<!-- CAMPAIGNS GRID -->
+<section class="campaign-grid">
+    
+    <!-- ================= GAZA ================= -->
+    <div class="campaign" data-campaign="gaza">
+        <img src="https://launchgood.s3.amazonaws.com/sponsor/5112/gaza_needs_you_39-700x525.jpg" alt="Gaza Emergency">
+        <div class="content">
+            <span class="tag emergency">Emergency</span>
+            <h2>Gaza Emergency Appeal</h2>
+            <p>Urgent aid needed for families affected by the crisis in Gaza. Your donation provides food, water, and medical supplies.</p>
+            <div class="money-box">
+                <div>
+                    <h3 id="gazaAmount">৳0</h3>
+                    <p>Collected</p>
+                </div>
+                <div>
+                    <h3>৳1,000,000</h3>
+                    <p>Target</p>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div id="gazaProgress" class="progress-bar"></div>
+            </div>
+            <div class="stats-card">
+                <div>
+                    <h3 id="gazaDonors">0</h3>
+                    <p>Donors</p>
+                </div>
+                <div>
+                    <h3 id="gazaPercent">0%</h3>
+                    <p>Funded</p>
+                </div>
+                <div>
+                    <h3>30</h3>
+                    <p>Days Left</p>
+                </div>
+            </div>
+            <a href="donation-form.html?campaign=gaza">
+                <button class="btn-donate"><i class="fas fa-heart"></i> Donate Now</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= FLOOD ================= -->
+    <div class="campaign" data-campaign="flood">
+        <img src="https://c.ndtvimg.com/2024-08/mv8e9gao_bangladesh-floods_625x300_23_August_24.jpeg?downsize=773:435" alt="Flood Relief">
+        <div class="content">
+            <span class="tag flood">Flood Relief</span>
+            <h2>Flood Relief Fund</h2>
+            <p>Help flood-affected communities rebuild their homes and lives. Emergency shelter and supplies needed.</p>
+            <div class="money-box">
+                <div>
+                    <h3 id="floodAmount">৳0</h3>
+                    <p>Collected</p>
+                </div>
+                <div>
+                    <h3>৳500,000</h3>
+                    <p>Target</p>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div id="floodProgress" class="progress-bar"></div>
+            </div>
+            <div class="stats-card">
+                <div>
+                    <h3 id="floodDonors">0</h3>
+                    <p>Donors</p>
+                </div>
+                <div>
+                    <h3 id="floodPercent">0%</h3>
+                    <p>Funded</p>
+                </div>
+                <div>
+                    <h3>20</h3>
+                    <p>Days Left</p>
+                </div>
+            </div>
+            <a href="donation-form.html?campaign=flood">
+                <button class="btn-donate"><i class="fas fa-heart"></i> Donate Now</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= EDUCATION ================= -->
+    <div class="campaign" data-campaign="education">
+        <img src="https://www.borgenmagazine.com/wp-content/uploads/2014/08/education-in-bangladesh_opt.jpg" alt="Education Support">
+        <div class="content">
+            <span class="tag education">Education</span>
+            <h2>Education Support Fund</h2>
+            <p>Provide school supplies, uniforms, and educational support to underprivileged children.</p>
+            <div class="money-box">
+                <div>
+                    <h3 id="educationAmount">৳0</h3>
+                    <p>Collected</p>
+                </div>
+                <div>
+                    <h3>৳300,000</h3>
+                    <p>Target</p>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div id="educationProgress" class="progress-bar"></div>
+            </div>
+            <div class="stats-card">
+                <div>
+                    <h3 id="educationDonors">0</h3>
+                    <p>Donors</p>
+                </div>
+                <div>
+                    <h3 id="educationPercent">0%</h3>
+                    <p>Funded</p>
+                </div>
+                <div>
+                    <h3>40</h3>
+                    <p>Days Left</p>
+                </div>
+            </div>
+            <a href="donation-form.html?campaign=education">
+                <button class="btn-donate"><i class="fas fa-heart"></i> Donate Now</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= MEDICAL ================= -->
+    <div class="campaign" data-campaign="medical">
+        <img src="https://img.magnific.com/premium-vector/stethoscope-sign-icon-comic-style-doctor-medical-vector-cartoon-illustration-white-isolated-background-hospital-business-concept-splash-effect_157943-6334.jpg?w=2000" alt="Medical Support">
+        <div class="content">
+            <span class="tag health">Medical</span>
+            <h2>Medical Support Fund</h2>
+            <p>Help provide life-saving treatments, medicines, and healthcare access to those in need.</p>
+            <div class="money-box">
+                <div>
+                    <h3 id="medicalAmount">৳0</h3>
+                    <p>Collected</p>
+                </div>
+                <div>
+                    <h3>৳200,000</h3>
+                    <p>Target</p>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div id="medicalProgress" class="progress-bar"></div>
+            </div>
+            <div class="stats-card">
+                <div>
+                    <h3 id="medicalDonors">0</h3>
+                    <p>Donors</p>
+                </div>
+                <div>
+                    <h3 id="medicalPercent">0%</h3>
+                    <p>Funded</p>
+                </div>
+                <div>
+                    <h3>25</h3>
+                    <p>Days Left</p>
+                </div>
+            </div>
+            <a href="donation-form.html?campaign=medical">
+                <button class="btn-donate"><i class="fas fa-heart"></i> Donate Now</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:white; padding:20px; border-radius:10px;">
+        <i class="fas fa-spinner fa-spin"></i> Loading...
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" style="position:fixed; bottom:20px; right:20px; background:#333; color:white; padding:12px 24px; border-radius:8px; display:none; z-index:10000;"></div>
+
+<footer style="background: #1e40af; color: white; text-align: center; padding: 40px 20px; margin-top: 60px;">
+    <h3>FundHub</h3>
+    <p style="opacity: 0.85; margin: 10px 0;">Empowering communities through transparent and impactful giving</p>
+    <p style="font-size: 12px; opacity: 0.7;">© 2024 FundHub. All rights reserved.</p>
+</footer>
+
+<script src="app.js"></script>
+
+<script>
+    // Additional initialization for campaigns page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load campaign data
+        if (typeof loadCampaignData === 'function') {
+            loadCampaignData();
+        }
+        
+        // Check login status and show/hide admin link
+        if (typeof checkLoginStatus === 'function') {
+            checkLoginStatus();
+        }
+        
+        // Add animation to campaign cards
+        const campaigns = document.querySelectorAll('.campaign');
+        campaigns.forEach((campaign, index) => {
+            campaign.style.opacity = '0';
+            campaign.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                campaign.style.transition = 'all 0.5s ease';
+                campaign.style.opacity = '1';
+                campaign.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    });
+    
+    // Show toast message
+    function showToast(message, type = 'info') {
+        const toast = document.getElementById('toast');
+        const colors = {
+            success: '#28a745',
+            error: '#dc3545',
+            info: '#17a2b8',
+            warning: '#ffc107'
+        };
+        toast.style.backgroundColor = colors[type] || colors.info;
+        toast.style.color = type === 'warning' ? '#333' : 'white';
+        toast.textContent = message;
+        toast.style.display = 'block';
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3000);
+    }
+    
+    // Show/hide loading
+    function showLoading(show) {
+        const overlay = document.getElementById('loadingOverlay');
+        if (overlay) {
+            overlay.style.display = show ? 'flex' : 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
